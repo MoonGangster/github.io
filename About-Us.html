@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script>
+
+        var util = {
+    mobileMenu() {
+      $("#nav").toggleClass("nav-visible");
+    },
+    windowResize() {
+      if ($(window).width() > 800) {
+        $("#nav").removeClass("nav-visible");
+      }
+    },
+    scrollEvent() {
+      var scrollPosition = $(document).scrollTop();
+      
+      $.each(util.scrollMenuIds, function(i) {
+        var link = util.scrollMenuIds[i],
+            container = $(link).attr("href"),
+            containerOffset = $(container).offset().top,
+            containerHeight = $(container).outerHeight(),
+            containerBottom = containerOffset + containerHeight;
+  
+        if (scrollPosition < containerBottom - 20 && scrollPosition >= containerOffset - 20) {
+          $(link).addClass("active");
+        } else {
+          $(link).removeClass("active");
+        }
+      });
+    }
+  };
+  
+  $(document).ready(function() {
+    
+    util.scrollMenuIds = $("a.nav-link[href]");
+    $("#menu").click(util.mobileMenu);
+    $(window).resize(util.windowResize);
+    $(document).scroll(util.scrollEvent);
+    
+  });
+  
+    </script>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500|Saira+Semi+Condensed:300,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/styles.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <style>
+   
+  </style>
+</head>
+
+<body>
+    <header id="nav-wrapper">
+        <nav id="nav">
+          <div class="nav left">
+            <span class="skew"><h1 class="logo un-skew"><a href="#home"><img src="HAWLOGO.png"/></a></h1></span>
+            <button id="menu" class="btn-nav"><span class="fas fa-bars"></span></button>
+          </div>
+          <div class="nav right">
+            <a href="index.html" class="nav-link"><span class="nav-link-span"><span class="u-nav">Home</span></span></a>
+            <a href="About-US.html" class="nav-link active"><span class="nav-link-span"><span class="u-nav">About Us</span></span></a>
+            <a href="Contact.html" class="nav-link"><span class="nav-link-span"><span class="u-nav">Contact</span></span></a>
+          </div>
+        </nav>
+      </header>
+      <main>
+          <!--
+        <section id="home" >
+            <div class="jumbotron" style="align-items: center; display: flex;">
+              <div class="overlay" style="background-color:#00000060; align-items: center; display: flex; height: 100vh; width: 100%;">
+                <div class='container'>
+                  <div id="contain">
+                    <h1 class="display-5" style="text-align: center; color:#7db5e4; width: fit-content; "><b>Hostage Aid Worldwide</b></h1>
+                    
+                    <h3 class="display-3" style="text-align: left; color: #fff;" >Join our online conference at 2pm till 3:30pm on December 10, 2020</h3>
+                    
+                    </div>
+                    
+                    
+                    </div>
+                  </div>  
+            </div>
+            
+              
+            
+            </section>
+           -->
+        <section id="about" style="align-items: center; padding-top: 3em;">
+          
+          <div class=" container" style="align-items: center; display: flex; padding-top: 1em;">
+            <div class="row">
+              <h2 style="text-align: center; padding-bottom: 1em;">Mission Statement</h2>
+              <p style='font-size: 1.5em'> 
+
+                Hostage Aid Worldwide’s (HAW) mission is to provide humanitarian aid, and support as well as empower current and former hostages and their families in their personal, emotional, physical, and psychological rehabilitation, reentrance to society and building better lives, and efforts to obtain legal services and assistance to seek reparations from governmental authorities in recompense for their adverse and unlawful experiences.
+                
+                HAW aims to increase the general public’s awareness as well as that of private persons/institutes to the plight of victims of hostage violence and unlawful detainment and the moral imperative to assist impacted such individualspersons;
+                
+                HAW will organize, promote, support and engage in activities to foster and encourage mutual awareness, understanding, and appreciation among people of different countries to stimulate dialogue, disseminate information, and facilitate cultural exchange, with a particular focus on social justice and how unlawful detainment, hostage violence, and torture impact human welfare and international relations as well as violate basic human rights; HAW will advocate for the release of hostages through advocacy efforts in collaboration with (or on behalf of) the hostages’ families.  
+                
+                In this, HAW intends to compliment the work carried out by other organizations and groupsNGOs that help and advocate for hostages. 
+                
+                
+                However, HAW’s  approach is uniquely focused ions different in that it will working  closely with technology experts to empirically  address the hostage taking “business model” and identifying ways to target components of this model with the aim to disrupt its operation. 
+                
+                To this end, HAW is pioneering a state-of-the-art  data-driven approach to hostage taking as a tool for the non-governmental and intergovernmental organizations including the United Nations, governments, as well as families of hostages in an effort to put an end to hostage taking. Governments have been struggling to deal with the global hostage crisis and HAW’s hostage tracker can be utilized as a technological step to achieve tangible outcomes. 
+              </p>
+            </div>
+          </div>
+          <div class="container" style="align-items: center; display: flex;">
+            <div class="row" style="text-align: center;">
+              <div class="col-lg-4" id='poster'>
+                <div class="">
+                    <i class="fa fa-users fa-5x" id='normalicon' aria-hidden="true"></i>
+                </div>
+                <h3>our mission</h3>
+                <p class="lead mb-0">HAW focuses on working closely with technology experts and companies to scientifically address the hostage taking business model and identify ways to target different components of this model in order to disrupt its operation </p>
+              </div>
+              <div class="col-lg-4" id='poster'>
+                <div class="">
+                  <div class="">
+                    <i class="fa fa-area-chart fa-5x" id='normalicon' aria-hidden="true"></i>
+                  </div>
+                  <h3>What we do</h3>
+                  <p class="lead mb-0">HAW is pioneering a state-of-the-art scientific and data-driven approach to hostage taking in order to develop a tool for the non-governmental and intergovernmental organizations</p>
+                </div>
+              </div>
+              <div class="col-lg-4" id='poster'>
+                <div class="">
+                  <div class="">
+                    <i class="fa fa-database fa-5x" id='normalicon' aria-hidden="true"></i>
+                  </div>
+                  <h3>Join us</h3>
+                  <p class="lead mb-0">HAW is in the process of starting a hostage tracking system powered by Artificial Intelligence (AI) used as a significant tool to achieve tangible outcomes</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--
+        <section id="work">
+          <div class="container">
+            
+            <div class="row" style="text-align: center;">
+              
+            </div>
+          </div>
+        </section>
+        
+        <section id="contact">
+              
+
+        
+            
+        </section>
+      </main>
+      -->
+       <!-- Footer-->
+       <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Location-->
+                
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                  
+                    <h4 class="text-uppercase mb-4">Located</h4>
+                    <p class="lead mb-0">
+                        United States of America
+                        <br />
+                        
+                    </p>
+                    
+                </div>
+                
+                <!-- Footer Social Icons-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Around the Web</h4>
+                    <a class="btn" href="#!"><i id='socialicon' class="fab fa-fw fa-facebook-f fa-2x"></i></a>
+                    <a class="btn" href="#!"><i id='socialicon' class="fab fa-fw fa-twitter fa-2x"></i></a>
+                    <a class="btn" href="#!"><i id='socialicon' class="fab fa-fw fa-linkedin-in fa-2x"></i></a>
+                    <a class="btn" href="#!"><i id='socialicon' class="fab fa-fw fa-dribbble fa-2x"></i></a>
+                </div>
+                <!-- Footer About Text-->
+                
+                <div class="col-lg-4">
+                  <!--
+                    <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                    
+                        .
+                    </p>
+                    -->
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+    <!-- Copyright Section-->
+    <div class="copyright py-4 text-center text-white">
+        <div class="container"><small>Hostage Aid worldwide</small></div>
+    </div>
+    </body>
+    
+    </html>
